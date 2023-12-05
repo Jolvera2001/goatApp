@@ -2,6 +2,7 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
+val kmongo_version: String by project
 
 plugins {
     kotlin("jvm") version "1.9.21"
@@ -33,6 +34,8 @@ dependencies {
     implementation("io.ktor:ktor-server-auth-jvm")
     implementation("io.ktor:ktor-server-netty-jvm")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("org.litote.kmongo:kmongo:$kmongo_version") // might not need this
+    implementation("org.mongodb:mongodb-driver-sync:4.4.3")
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
