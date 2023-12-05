@@ -18,4 +18,12 @@ fun Application.configureRouting() {
             call.respondText(text = "404: $cause", status = HttpStatusCode.NotFound)
         }
     }
+
+    routing {
+        singlePageApplication {
+            useResources = true
+            filesPath = "static"
+            defaultPage = "index.html"
+        }
+    }
 }
