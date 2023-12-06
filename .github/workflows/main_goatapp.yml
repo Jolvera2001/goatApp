@@ -25,13 +25,12 @@ jobs:
           java-version: '17'
 
       - name: Make Gradle Executable
-        run: chmod +x goatappserver/gradlew
+        run: chmod +x gradlew
         working-directory: goatappserver 
         
       - name: Build with Gradle
-        run: |
-          cd goatappserver
-          ./gradlew build
+        run: ./gradlew assemble
+        working-directory: goatappserver
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
