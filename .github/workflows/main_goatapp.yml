@@ -29,8 +29,9 @@ jobs:
         working-directory: goatappserver 
         
       - name: Build with Gradle
-        run: ./goatappserver/gradlew build
-        working-directory: goatappserver
+        run: |
+          cd goatappserver
+          ./gradlew build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
