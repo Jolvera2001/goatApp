@@ -24,6 +24,10 @@ jobs:
         with:
           java-version: '17'
 
+      - name: Make Gradle Executable
+        run: chmod +x goatappserver/gradlew
+        working-directory: goatappserver 
+        
       - name: Build with Gradle
         run: goatappserver/gradlew build
         working-directory: goatappserver
