@@ -27,10 +27,17 @@ jobs:
       - name: Make Gradle Executable
         run: chmod +x goatappserver/gradlew
         working-directory: goatappserver 
+
+      - name: Check Project Directory
+        run: |
+          cd goatappserver
+          pwd
+          ls -la
         
       - name: Build with Gradle
-        run: ./goatappserver/gradlew build
-        working-directory: goatappserver
+        run: |
+          cd goatappserver
+          ./gradlew
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
