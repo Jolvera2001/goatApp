@@ -25,7 +25,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: goatappserver/gradlew build
         working-directory: goatappserver
 
       - name: Upload artifact for deployment job
