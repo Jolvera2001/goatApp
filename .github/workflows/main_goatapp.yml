@@ -30,7 +30,7 @@ jobs:
         
       - name: Build with Gradle
         run: goatappserver/gradlew build
-        working-directory: goatappserver/gradlew.build.kts
+        working-directory: goatappserver
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
