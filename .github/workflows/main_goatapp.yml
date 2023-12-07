@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/build/lib/*.jar'
+          path: '${{ github.workspace }}/goatappserver/build/lib/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
