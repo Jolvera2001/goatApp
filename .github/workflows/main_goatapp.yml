@@ -33,15 +33,11 @@ jobs:
         run: ./gradlew buildFatJar
         working-directory: goatappserver
 
-      - name: Check For Jar Files
-        run: |
-          ls -la goatappserver/
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '/home/runner/work/goatApp/goatappserver/build/lib/*.jar'
+          path: '/home/runner/work/goatApp/goatappserver/build/libs/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
