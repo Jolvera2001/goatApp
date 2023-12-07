@@ -35,7 +35,7 @@ jobs:
 
       - name: Check For Jar Files
         run: |
-          ls -la goatappserver/build/lib/
+          ls -la goatappserver/
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
