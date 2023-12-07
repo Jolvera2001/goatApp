@@ -21,8 +21,13 @@ jobs:
         with:
           java-version: '17'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build with Gradle
+        run: goatappserver/gradlew build
+        working-directory: goatappserver
+
+      - name: Create Jar File
+        run: ./gradlew buildFatJar
+        working-directory: goatappserver
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
