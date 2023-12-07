@@ -33,7 +33,7 @@ jobs:
         working-directory: goatappserver
         
       - name: Build with Gradle
-        run: ./gradlew build
+        run: gradlew build
         working-directory: goatappserver
 
       - name: Upload artifact for deployment job
