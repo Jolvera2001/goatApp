@@ -21,6 +21,10 @@ jobs:
         with:
           java-version: '17'
 
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+        working-directory: goatappserver
+
       - name: Build with Gradle
         run: ./gradlew build
         working-directory: goatappserver
