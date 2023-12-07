@@ -22,7 +22,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Gradle
-        run: goatappserver/gradlew build
+        run: ./gradlew build
         working-directory: goatappserver
 
       - name: Create Jar File
