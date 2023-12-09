@@ -48,13 +48,12 @@ jobs:
       
     steps:
       - name: Display Contents of libs Directory
-        run: ls -l goatappserver/build/libs
+        run: ls -l 
         
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: java-app
-          path: goatappserver/build/libs/*.jar
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
