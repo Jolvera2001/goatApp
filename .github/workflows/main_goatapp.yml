@@ -51,6 +51,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: java-app
+          path: goatappserver/build/libs
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
