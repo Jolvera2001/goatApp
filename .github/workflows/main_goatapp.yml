@@ -52,6 +52,9 @@ jobs:
         with:
           name: java-app
           path: goatappserver/build/libs
+
+      - name: Display Contents of libs Directory
+        run: ls -l goatappserver/build/libs
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
