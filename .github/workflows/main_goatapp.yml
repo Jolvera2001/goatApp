@@ -21,14 +21,23 @@ jobs:
         with:
           java-version: '17'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+        working-directory: goatappserver
+
+      - name: Build with Gradle
+        run: ./gradlew build
+        working-directory: goatappserver
+
+      - name: Create Jar File
+        run: ./gradlew buildFatJar
+        working-directory: goatappserver
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/goatappserver/build/libs/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
