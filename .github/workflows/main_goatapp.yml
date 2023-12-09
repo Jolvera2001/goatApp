@@ -33,17 +33,11 @@ jobs:
         run: ./gradlew buildFatJar
         working-directory: goatappserver
 
-      - name: Display Contents of libs Directory
-        run: ls -l goatappserver/build/libs
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
           path: '/home/runner/work/goatApp/goatappserver/build/libs/*.jar'
-
-      - name: Display Contents of libs Directory Again
-        run: ls -l goatappserver/build/libs
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,11 +47,14 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
       
     steps:
+      - name: Display Contents of libs Directory
+        run: ls -l goatappserver/build/libs
+        
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: java-app
-          path: goatappserver/build/libs
+          path: goatappserver/build/libs/*.jar
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
