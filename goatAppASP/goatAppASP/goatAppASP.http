@@ -1,0 +1,6 @@
+@goatAppASP_HostAddress = http://localhost:5047
+
+GET {{goatAppASP_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
