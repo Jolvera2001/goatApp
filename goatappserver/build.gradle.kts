@@ -34,8 +34,16 @@ dependencies {
     implementation("io.ktor:ktor-server-auth-jvm")
     implementation("io.ktor:ktor-server-netty-jvm")
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("org.litote.kmongo:kmongo:$kmongo_version") // might not need this
+
+    // kotlin coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+
+    // mongoDB
     implementation("org.mongodb:mongodb-driver-sync:4.4.3")
+
+    // I'm sure there's a way to put in dependency injection,
+    // but it isn't out of the box :(
+
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
