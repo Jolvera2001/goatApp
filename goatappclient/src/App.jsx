@@ -9,12 +9,13 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <LandingPage />
   },
 ]);
 
 
 import Home from './Home';
+import LandingPage from './routes/LandingPage';
 
 function App() {
 return(
@@ -28,7 +29,7 @@ return(
 
       <Switch>
         <Route path="/" exact>
-          <Home />
+          <LandingPage />
         </Route>
       </Switch>
     </div>

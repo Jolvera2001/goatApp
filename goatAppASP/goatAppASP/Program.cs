@@ -1,3 +1,5 @@
+using goatAppASP.Models;
+using goatAppASP.Services;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,8 +19,11 @@ builder.Services.AddControllers();
 builder.Services.AddSingleton<IMongoClient>(client);
 
 // Add CRUD Services for APIs
+builder.Services.AddSingleton<UserServices>();
 
 // Add configuration settings for services
+builder.Services.Configure<UserDatabaseSettings>(
+    builder.Configuration.GetSection("UserDatabase"));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
