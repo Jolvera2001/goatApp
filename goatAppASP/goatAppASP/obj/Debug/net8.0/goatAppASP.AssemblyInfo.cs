@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("goatAppASP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d8eebab846ef30c6eb5d265190f650af469fb1d")]
 [assembly: System.Reflection.AssemblyProductAttribute("goatAppASP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("goatAppASP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
