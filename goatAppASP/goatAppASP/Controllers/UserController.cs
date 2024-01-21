@@ -41,7 +41,7 @@ namespace goatAppASP.Controllers
                 if (result.IsCompletedSuccessfully)
                 {
                     // once this is good, then we return the Jwt
-                    var token = GenerateJwtToken(userLoggingIn);
+                    var token = GenerateJwtToken(userLoggingIn); // TODO
                     return Ok(new { token });
                 }
             }
@@ -52,17 +52,43 @@ namespace goatAppASP.Controllers
 
         [Route("register")]
         [HttpPost]
-        public IActionResult register([FromBody] Dictionary<string, string> formData)
+        public async Task<IActionResult> register([FromBody] Dictionary<string, string> formData)
         {
             /// Anticipated Form data
             /// Username : [ ] 
             /// Password : [ ]
             /// FirstName : [ ]
-            /// LastName : [ ] 
+            /// LastName : [ ]
             
-            return Ok("Registration Successful");
-        }
-        
+            var username = formData["username"];
 
+            // check if the username already exists
+            var usernameCheck = await _userService.GetAsyncName(username);
+            if (usernameCheck == null)
+            {
+                var password = formData["password"];
+                var firstName = formData["username"];
+                var lastName = formData["lastname"];
+
+                User newUser = new User
+                {
+                    UserName = username,
+                    Password = password,
+                    FirstName = firstName,
+                    LastName = lastName
+                };
+
+                // uploading to atlas db
+                await _userService.CreateAsync(newUser);
+
+                // returning status code
+                return Ok("User account successfully created and uploaded to DB");
+
+                // should we redirect and create a Jwt here?
+            }
+
+            // username already taken
+            return BadRequest("Username already taken");
+        }
     }
 }
