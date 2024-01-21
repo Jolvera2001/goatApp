@@ -22,7 +22,7 @@ namespace goatAppASP.Controllers
 
         [Route("login")]
         [HttpPost]
-        public IActionResult Login([FromBody] Dictionary<string, string> formData)
+        public async Task<IActionResult> Login([FromBody] Dictionary<string, string> formData)
         {
             /// Anticipated Form data
             /// Username : [ ] 
@@ -31,7 +31,7 @@ namespace goatAppASP.Controllers
             var password = formData["password"];
 
             // check if the username exists
-            var userLoggingIn = _userService.GetAsyncName(userName);
+            var userLoggingIn = await _userService.GetAsyncName(userName);
 
             if (userLoggingIn != null)
             {
@@ -40,8 +40,8 @@ namespace goatAppASP.Controllers
 
                 if (result.IsCompletedSuccessfully)
                 {
-                    // refer to ChatGPT TODO
-                    var token = GenerateJwtToken(user);
+                    // once this is good, then we return the Jwt
+                    var token = GenerateJwtToken(userLoggingIn);
                     return Ok(new { token });
                 }
             }
