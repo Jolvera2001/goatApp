@@ -14,11 +14,12 @@ namespace goatAppASP.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly TokenService _tokenService;
 
-        public UserController(UserServices userService, IConfiguration configuration, SignInManager<User> signInManager)
+        public UserController(UserServices userService, IConfiguration configuration, SignInManager<User> signInManager, TokenService tokenService)
         {
             _userService = userService;
             _signInManager = signInManager;
             _configuration = configuration;
+            _tokenService = tokenService;
         }
 
         [Route("login")]

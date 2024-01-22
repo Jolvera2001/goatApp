@@ -1,6 +1,7 @@
 using goatAppASP.Models;
 using goatAppASP.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using System.Text;
@@ -37,7 +38,12 @@ builder.Services.Configure<UserDatabaseSettings>(
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// adding in Jwts
+// adding in authentication
+builder.Services.AddIdentityMongoDbProvider<User, IdentityRole>(options =>
+{
+    options.ConnectionString = connectionString;
+});
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
