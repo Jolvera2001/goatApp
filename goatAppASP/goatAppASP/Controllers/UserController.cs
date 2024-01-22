@@ -12,6 +12,7 @@ namespace goatAppASP.Controllers
         private readonly UserServices _userService;
         private readonly IConfiguration _configuration;
         private readonly SignInManager<User> _signInManager;
+        private readonly TokenService _tokenService;
 
         public UserController(UserServices userService, IConfiguration configuration, SignInManager<User> signInManager)
         {
@@ -36,18 +37,18 @@ namespace goatAppASP.Controllers
             if (userLoggingIn != null)
             {
                 // then we check the password
-                var result = _signInManager.CheckPasswordSignInAsync(userLoggingIn, password, lockoutOnFailure: false);
+                var result = await _signInManager.CheckPasswordSignInAsync(userLoggingIn, password, lockoutOnFailure: false);
 
-                if (result.IsCompletedSuccessfully)
+                if (result.Succeeded)
                 {
                     // once this is good, then we return the Jwt
-                    var token = GenerateJwtToken(userLoggingIn); // TODO
+                    var token = _tokenService.GenerateJwtToken(userLoggingIn);
                     return Ok(new { token });
                 }
             }
             
             // Invalid user or pass
-            return Unauthorized("Invalid Username or Password");
+            return Unauthorized("Invalid Credentials");
         }
 
         [Route("register")]
@@ -82,13 +83,12 @@ namespace goatAppASP.Controllers
                 await _userService.CreateAsync(newUser);
 
                 // returning status code
-                return Ok("User account successfully created and uploaded to DB");
-
-                // should we redirect and create a Jwt here?
+                var token = _tokenService.GenerateJwtToken(newUser);
+                return Ok(new { token });
             }
 
             // username already taken
-            return BadRequest("Username already taken");
+            return Conflict("Username Taken");
         }
     }
 }
