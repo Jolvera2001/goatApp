@@ -11,9 +11,9 @@ public class UserServices
 
     public UserServices(IMongoClient mongoClient)
     {
-        var mongoDatabase = mongoClient.GetDatabase("");
+        var mongoDatabase = mongoClient.GetDatabase("goat-places");
 
-        _userCollection = mongoDatabase.GetCollection<User>("");
+        _userCollection = mongoDatabase.GetCollection<User>("UserCreds");
     }
 
     public async Task<List<User>> GetAsync() =>
