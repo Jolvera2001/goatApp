@@ -10,7 +10,14 @@ public class TokenService
 {
     public string GenerateJwtToken(User user)
     {
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("something")); // TODO
+        var jwtKey = Environment.GetEnvironmentVariable("JwtKey");
+
+        if (jwtKey == null)
+        {
+            return ("Error with JwtKey");
+        }
+
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)); // TODO
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
         var claims = new List<Claim>
@@ -20,8 +27,8 @@ public class TokenService
         };
 
         var token = new JwtSecurityToken(
-            issuer: "My Issuer",
-            audience: "my audience",
+            issuer: "GoatApp",
+            audience: "User",
             claims: claims,
             expires: DateTime.UtcNow.AddHours(1),
             signingCredentials: credentials
