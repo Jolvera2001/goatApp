@@ -9,9 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // MongoDB connection Setup
 var connectionString = Environment.GetEnvironmentVariable("MongoDBGoatApp_URI");
-if (connectionString == null)
+var jwtKey = Environment.GetEnvironmentVariable("JwtKey");
+
+if (connectionString == null || jwtKey == null)
 {
-    Console.WriteLine("You must set up your MongoDBGoatAPP_URI env variable!");
+    Console.WriteLine("You must set up your env variables!");
     Environment.Exit(0);
 }
 
@@ -45,7 +47,7 @@ builder.Services.AddAuthentication(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Something")), // TODO on laptop
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)), // TODO on laptop
         ValidateIssuer = true,
         ValidateAudience = true,
         ClockSkew = TimeSpan.Zero
