@@ -52,3 +52,5 @@ C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\obj\Debug\net8.0\refint\g
 C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\obj\Debug\net8.0\goatAppASP.pdb
 C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\obj\Debug\net8.0\goatAppASP.genruntimeconfig.cache
 C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\obj\Debug\net8.0\ref\goatAppASP.dll
+C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\bin\Debug\net8.0\AspNetCore.Identity.MongoDbCore.dll
+C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\bin\Debug\net8.0\MongoDbGenericRepository.dll

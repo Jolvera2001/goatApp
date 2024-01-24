@@ -1,13 +1,16 @@
-﻿using MongoDB.Bson;
+﻿using AspNetCore.Identity.MongoDbCore.Models;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDbGenericRepository.Attributes;
 
 namespace goatAppASP.Models;
 
+[CollectionName("UserCreds")]
 public class User
 {
     [BsonId]
-    [BsonRepresentation(BsonType.String)]
-    public string? Id { get; set; }
+    [BsonRepresentation(BsonType.ObjectId)]
+    public String Id { get; set; }
 
     [BsonElement("Username")]
     public string UserName { get; set; }

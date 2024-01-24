@@ -35,21 +35,18 @@ namespace goatAppASP.Controllers
             // check if the username exists
             var userLoggingIn = await _userService.GetAsyncName(userName);
 
-            if (userLoggingIn != null)
-            {
-                // then we check the password
-                var result = await _signInManager.CheckPasswordSignInAsync(userLoggingIn, password, lockoutOnFailure: false);
-
-                if (result.Succeeded)
-                {
-                    // once this is good, then we return the Jwt
-                    var token = _tokenService.GenerateJwtToken(userLoggingIn);
-                    return Ok(new { token });
-                }
-            }
+            if (userLoggingIn == null) return Unauthorized("Invalid Credentials");
             
+            // then we check the password
+            var result = await _signInManager.CheckPasswordSignInAsync(userLoggingIn, password, lockoutOnFailure: false);
+
+            if (!result.Succeeded) return Unauthorized("Invalid Credentials");
+            
+            // once this is good, then we return the Jwt
+            var token = _tokenService.GenerateJwtToken(userLoggingIn);
+            return Ok(new { token });
+
             // Invalid user or pass
-            return Unauthorized("Invalid Credentials");
         }
 
         [Route("register")]
@@ -66,30 +63,28 @@ namespace goatAppASP.Controllers
 
             // check if the username already exists
             var usernameCheck = await _userService.GetAsyncName(username);
-            if (usernameCheck == null)
+            if (usernameCheck != null) return Conflict("Username Taken");
+            
+            var password = formData["password"];
+            var firstName = formData["username"];
+            var lastName = formData["lastname"];
+
+            var newUser = new User
             {
-                var password = formData["password"];
-                var firstName = formData["username"];
-                var lastName = formData["lastname"];
+                UserName = username,
+                Password = password,
+                FirstName = firstName,
+                LastName = lastName
+            };
 
-                User newUser = new User
-                {
-                    UserName = username,
-                    Password = password,
-                    FirstName = firstName,
-                    LastName = lastName
-                };
+            // uploading to atlas db
+            await _userService.CreateAsync(newUser);
 
-                // uploading to atlas db
-                await _userService.CreateAsync(newUser);
-
-                // returning status code
-                var token = _tokenService.GenerateJwtToken(newUser);
-                return Ok(new { token });
-            }
+            // returning status code
+            var token = _tokenService.GenerateJwtToken(newUser);
+            return Ok(new { token });
 
             // username already taken
-            return Conflict("Username Taken");
         }
     }
 }
