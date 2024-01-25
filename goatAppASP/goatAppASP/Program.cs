@@ -1,14 +1,10 @@
 using goatAppASP.Models;
 using goatAppASP.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using System.Text;
-using AspNetCore.Identity.MongoDbCore;
-using AspNetCore.Identity.MongoDbCore.Infrastructure;
-using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,7 +48,7 @@ builder.Services.AddAuthentication(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)), // TODO on laptop
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
         ValidateIssuer = true,
         ValidateAudience = true,
         ClockSkew = TimeSpan.Zero

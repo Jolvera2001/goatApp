@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1OlUIUSTugssUlJfAvPA8iR2OJk3zffFC6e364MNY4fWVSdiU0ZqXzojpGp0FIHgypnHY4FnjWGHWHxfsGOudQ==",
+  "dgSpecHash": "+ZVq2DoEPG1WERB83S3qfJ/APfUZZWQZBqGtEvF2/glVhkQgRJ1/8+l13hcw/TMHHqArZTN9pm5b88/3ZqjMJQ==",
   "success": true,
   "projectFilePath": "C:\\Local Projects\\Github\\goatApp\\goatAppASP\\goatAppASP\\goatAppASP.csproj",
   "expectedPackageFiles": [
@@ -38,6 +38,7 @@
     "C:\\Users\\canno\\.nuget\\packages\\mongodb.driver.core\\2.23.1\\mongodb.driver.core.2.23.1.nupkg.sha512",
     "C:\\Users\\canno\\.nuget\\packages\\mongodb.libmongocrypt\\1.8.0\\mongodb.libmongocrypt.1.8.0.nupkg.sha512",
     "C:\\Users\\canno\\.nuget\\packages\\mongodbgenericrepository\\1.4.8\\mongodbgenericrepository.1.4.8.nupkg.sha512",
+    "C:\\Users\\canno\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\canno\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\canno\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
     "C:\\Users\\canno\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

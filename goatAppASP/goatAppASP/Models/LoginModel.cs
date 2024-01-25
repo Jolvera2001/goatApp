@@ -1,7 +1,10 @@
-﻿namespace goatAppASP.Models;
+﻿using System.Runtime.Serialization;
+
+namespace goatAppASP.Models;
 
 public class LoginModel
 {
-    public string username { get; }
-    public string password { get; }
+    public string Username { get; set; }
+    
+    public string Password { get; set; }
 }

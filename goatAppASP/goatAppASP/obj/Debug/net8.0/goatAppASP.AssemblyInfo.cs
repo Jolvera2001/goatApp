@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("goatAppASP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3821eb4e28cbe6a7b2ad24eb6a9d6fd44d166f36")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95db976c6c4d573622083f0c32733469139a0cf0")]
 [assembly: System.Reflection.AssemblyProductAttribute("goatAppASP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("goatAppASP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

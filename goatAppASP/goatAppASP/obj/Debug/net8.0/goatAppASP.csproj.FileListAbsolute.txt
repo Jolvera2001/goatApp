@@ -54,3 +54,4 @@ C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\obj\Debug\net8.0\goatAppA
 C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\obj\Debug\net8.0\ref\goatAppASP.dll
 C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\bin\Debug\net8.0\AspNetCore.Identity.MongoDbCore.dll
 C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\bin\Debug\net8.0\MongoDbGenericRepository.dll
+C:\Local Projects\Github\goatApp\goatAppASP\goatAppASP\bin\Debug\net8.0\Newtonsoft.Json.dll

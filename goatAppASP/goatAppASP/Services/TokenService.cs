@@ -17,7 +17,7 @@ public class TokenService
             return ("Error with JwtKey");
         }
 
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)); // TODO
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
         var claims = new List<Claim>

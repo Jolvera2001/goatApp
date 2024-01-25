@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using goatAppASP.Services;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace goatAppASP.Controllers
 {
@@ -27,12 +28,12 @@ namespace goatAppASP.Controllers
             if (ModelState.IsValid)
             {
                 // check if the username exists
-                var userLoggingIn = await _userService.GetAsyncName(login.username);
+                var userLoggingIn = await _userService.GetAsyncName(login.Username);
 
                 if (userLoggingIn == null) return Unauthorized("Invalid Credentials");
                 
                 // then we check the password
-                if (login.password != userLoggingIn.Password) return Unauthorized("Invalid Credentials");
+                if (login.Password != userLoggingIn.Password) return Unauthorized("Invalid Credentials");
                 
                 // once this is good, then we return the Jwt
                 var token = _tokenService.GenerateJwtToken(userLoggingIn);
@@ -44,25 +45,22 @@ namespace goatAppASP.Controllers
 
         [Route("register")]
         [HttpPost]
-        public async Task<IActionResult> register(User user)
+        public async Task<IActionResult> Register(User user)
         {
-            if (ModelState.IsValid)
-            {
-                // check if the username already exists
-                var usernameCheck = await _userService.GetAsyncName(user.UserName);
-                if (usernameCheck != null) return Conflict("Username Taken");
+            user.Id = ObjectId.GenerateNewId().ToString();
+            
+            // check if the username already exists
+            var usernameCheck = await _userService.GetAsyncName(user.UserName);
+            if (usernameCheck != null) return Conflict("Username Taken");
 
-                var newUser = user;
+            var newUser = user;
 
-                // uploading to atlas db
-                await _userService.CreateAsync(newUser);
+            // uploading to atlas db
+            await _userService.CreateAsync(newUser);
 
-                // returning status code
-                var token = _tokenService.GenerateJwtToken(newUser);
-                return Ok(new { token });
-            }
-
-            return BadRequest("ModelState is Invalid");
+            // returning status code
+            var token = _tokenService.GenerateJwtToken(newUser);
+            return Ok(new { token });
         }
     }
 }
