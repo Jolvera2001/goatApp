@@ -26,9 +26,10 @@ namespace goatAppASP.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] Dictionary<string, string> formData)
         {
-            /// Anticipated Form data
-            /// Username : [ ] 
-            /// Password : [ ]
+            // Anticipated Form data
+            // Username : [ ] 
+            // Password : [ ]
+            
             var userName = formData["userName"];
             var password = formData["password"];
 
@@ -53,11 +54,11 @@ namespace goatAppASP.Controllers
         [HttpPost]
         public async Task<IActionResult> register([FromBody] Dictionary<string, string> formData)
         {
-            /// Anticipated Form data
-            /// Username : [ ] 
-            /// Password : [ ]
-            /// FirstName : [ ]
-            /// LastName : [ ]
+            // Anticipated Form data
+            // Username : [ ] 
+            // Password : [ ]
+            // FirstName : [ ]
+            // LastName : [ ]
             
             var username = formData["username"];
 
