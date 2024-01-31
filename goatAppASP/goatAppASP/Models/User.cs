@@ -1,29 +1,43 @@
-﻿using MongoDB.Bson;
+﻿using System.ComponentModel.DataAnnotations;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDbGenericRepository.Attributes;
 
 namespace goatAppASP.Models;
 
+[CollectionName("UserCreds")]
 public class User
 {
     [BsonId]
-    public int Id { get; set; }
-
-    [BsonElement("username")]
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string Id { get; set; }
+    
+    [Required]
+    [BsonElement("Username")]
     public string UserName { get; set; }
 
-    [BsonElement("password")]
+    [Required]
+    [BsonElement("Password")]
     public string Password { get; set; }
-
-    [BsonElement("email")]
+    
+    [Required]
+    [BsonElement("Email")]
     public string Email { get; set; }
 
+    [Required]
+    [BsonElement("FirstName")]
+    public string? FirstName { get; set; }
+
+    [Required]
+    [BsonElement("LastName")]
+    public string? LastName { get; set; }
 }
 
 public class UserDatabaseSettings
 {
     public string ConnectionString { get; set; } = null!;
 
-    public string DatabaseName { get; set; } = null!;
+    public string Databasename { get; set; } = null!;
 
-    public string BlogCollectionName { get; set; } = null!;
+    public string UserCollectionName { get; set; } = null!;
 }

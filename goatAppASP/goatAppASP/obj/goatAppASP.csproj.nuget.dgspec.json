@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\canno\\OneDrive\\Documents\\Visual Studio 2022\\goatAppASP\\goatAppASP\\goatAppASP.csproj": {}
+    "C:\\Local Projects\\Github\\goatApp\\goatAppASP\\goatAppASP\\goatAppASP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\canno\\OneDrive\\Documents\\Visual Studio 2022\\goatAppASP\\goatAppASP\\goatAppASP.csproj": {
+    "C:\\Local Projects\\Github\\goatApp\\goatAppASP\\goatAppASP\\goatAppASP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\canno\\OneDrive\\Documents\\Visual Studio 2022\\goatAppASP\\goatAppASP\\goatAppASP.csproj",
+        "projectUniqueName": "C:\\Local Projects\\Github\\goatApp\\goatAppASP\\goatAppASP\\goatAppASP.csproj",
         "projectName": "goatAppASP",
-        "projectPath": "C:\\Users\\canno\\OneDrive\\Documents\\Visual Studio 2022\\goatAppASP\\goatAppASP\\goatAppASP.csproj",
+        "projectPath": "C:\\Local Projects\\Github\\goatApp\\goatAppASP\\goatAppASP\\goatAppASP.csproj",
         "packagesPath": "C:\\Users\\canno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\canno\\OneDrive\\Documents\\Visual Studio 2022\\goatAppASP\\goatAppASP\\obj\\",
+        "outputPath": "C:\\Local Projects\\Github\\goatApp\\goatAppASP\\goatAppASP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\canno\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,25 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AspNetCore.Identity.MongoDbCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.23.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -68,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
