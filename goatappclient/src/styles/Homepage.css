@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+
+
+.account,
+.map,
+.create-post {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background-color: #001D3D;
+  color: #ffffff;
+}
+/* Navbar CSS */
+.sidebar {
+  background-color: #ffffff;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar-logo {
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 120px; /* Adjust the width as needed */
+  height: 80px; /* Adjust the height as needed */
+  
+}
+
+
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color: #000;
+}
+
+.side-menu {
+  background-color: #ffffff;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
+
+.side-menu.active {
+  left: 0;
+  transition: 450ms;
+}
+
+.side-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.side-text a {
+  text-decoration: none;
+  color: #151414;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.side-text a:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
+.side-menu-items {
+  width: 100%;
+}
+
+.side-toggle {
+  background-color: #ffffff;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+span {
+  margin-left: 16px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 80px; /* Adjust the padding to create space for the header */
+  height: 100vh;
+  overflow-y: auto;
+  scroll-margin-top: 80px; /* Hides overflowing content */
+  width: 100%; /* Added */
+
+  align-items: center;
+
+  font-size: 2rem;
+  background-color: #001D3D;
+  color: #ffffff;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2; /* Ensures the header stays on top */
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.banners-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-banner,
+.right-banner {
+
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.event h2,
+.event p {
+  margin: 5px;
+  font-size: 15px;
+  align-items: center;
+  text-align: center;
+}
+
+
+.post {
+  width: 100%;
+  max-width: 800px; /* Adjust the width as needed */
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+
+}
+
+.regular-post {
+  display: flex;
+  flex-direction: column;
+/* Center content vertically */
+  
+}
+
+.regular-post h2,
+.event h2 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #070707;
+}
+
+
+
+.regular-post img {
+  width: 40%; /* Adjust the width as needed */
+  height: auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  align-self: center; /* Center the image within its container */
+}
+
+.regular-post p,
+.event p {
+  margin-bottom: 5px;
+  color: #070707;
+  font-size: 20px; /* Adjust font size as needed */
+}
+
+.regular-post h3,
+.event h3 {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 5px;
+  
+  
+}
+
+.see-more {
+  color: rgb(94, 94, 97);
+  cursor: pointer;
+}
+.collapsed-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.expanded-description {
+  overflow: visible;
+}
+
+/* Toggle link style */
+.description-toggle {
+  color: rgb(94, 94, 97);
+  cursor: pointer;
+}
+.regular-post img {
+  width: 50%; /* Adjust the width as needed */
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  height: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  align-self: center; /* Center the image within its container */
+}
+
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  .post {
+    width: 100%;
+  }
+}

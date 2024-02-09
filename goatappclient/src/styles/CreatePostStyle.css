@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+
+  font-family: "Lato", sans-serif;
+}
+
+.initalCreatePage{
+  align-text: center;
+  background-color: #fff;
+  border-radius: 10px;
+  
+
+}
+.createPost{
+  align-items: center;
+  background-color: #001D3D;
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+  color: #001D3D;
+  margin-left: 80px;
+  padding: 30px;
+  font-size: 34px; 
+}
+
+.createPost h2 {
+  text-align: center;
+}
+
+/* Style for buttons */
+.eventBtn {
+  font-size: 34px; 
+  background-color: #001D3D;
+  color: #fff;
+  justify-content: flex-start;
+  list-style: none;
+  margin-bottom: 30px;
+  margin: 40px;
+  margin-right: 30px;
+  border-radius: 10px;
+  padding: 15px 30px;
+}
+.postBtn {
+  font-size: 34px; 
+  background-color: #001D3D;
+  color: #fff;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 40px;
+  margin-right: 40px;
+
+  border-radius: 10px;
+  padding: 15px 30px;
+}
+
+
+.btns a {
+  text-decoration: none;
+  color: #151414;
+  width: 100%;
+  display: flex;
+
+  border-radius: 4px;
+ 
+}
+
+.btns:hover a {
+  background-color: #000000; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+}
+
+.form-container{
+  background-color: #001D3D;
+  padding: 100px;
+  text-align: center; /* Center the content within the container */
+  margin: 0 auto; /* Center the container horizontally on the page */
+  width: 50%;
+  height: 100%;
+}
+
+
+/* Style for the form and its elements */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%; 
+}
+
+/* .addnewpost {
+  font-size: 2rem;
+  padding-right: 130px;
+  
+} */
+
+label {
+  font-size: 1.5rem;
+  color: #070707;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+input[type="file"] {
+  cursor: pointer;
+}
+
+.newpost-btn {
+  background-color: #fff;
+  color: #001D3D;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.newpost-btn:hover {
+  background-color: #070707;
+  color: #fff;
+}
+
+.title-char,
+.desc-char,
+.when-char,
+.where-char,
+.what-char {
+  font-size: 1rem;
+  color: #888; /* Adjust the color as needed */
+  margin-top: -60px; /* Adjust to align with input fields */
+  margin-left: 300px; /* Adjust to position it to the right of the input fields */
+  margin-right: 20px; 
+}
+.createPost input[type="text"] {
+  width: 100%; /* Adjust the width as needed */
+  margin-bottom: 60px; 
+  
+}
+

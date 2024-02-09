@@ -1,0 +1,91 @@
+
+.account {
+    display: flex;
+    flex-direction: column;
+    /* border-radius: 10px; */
+    color: #000; 
+    font-size: 2rem; 
+    background-color: #001D3D;
+    overflow-y: scroll;
+  }
+  
+  .account-info {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(237, 236, 236);
+    color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center; 
+    font-size: 1.5rem; 
+    margin: 0 auto;
+  
+  
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 2rem; 
+    margin-bottom: 20px;
+    margin-right: 80px;
+  
+  }
+  
+  .profile-picture {
+    margin-top: 10px;
+    flex-direction: row;
+  }
+  
+  .profile-picture img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    text-align: left;
+    margin-bottom: 10px;
+  
+  }
+  
+  .account-details {
+    text-align: left;
+    margin-top: 10px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  .followerCount {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-size: 1.2rem; /* Adjust the font size as needed */
+    margin: 10px 0; /* Adjust margin as needed */
+    margin-right: 30px;
+  }
+  
+  .followerCount strong {
+    margin-left: 35px; /* Adjust the margin as needed */
+  
+  }
+  
+  .button-container {
+    margin-top: 10px;
+  }
+  
+  .button-container button {
+    background-color: #001D3D;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-right: 10px; /* Adjust as needed */
+  }
+  
+  .button-container button:hover {
+    background-color: #000000;
+  }
+  
+  

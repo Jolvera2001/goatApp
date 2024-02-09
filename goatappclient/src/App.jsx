@@ -1,39 +1,26 @@
 
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom"
+import React from 'react';
+import LandingPageRedone from './pages/LandingPageRedone'
+import Homepage from './pages/Homepage';
+import MapPage from './pages/MapPage';
+import Account from './pages/Account';
+import CreatePost from './pages/CreatePost'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />
-  },
-]);
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-
-import Home from './Home';
 
 function App() {
-return(
-  <Router>
-    <div>
-      <nav>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-      </nav>
-
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-      </Switch>
-    </div>
-  </Router>
-  );
-};
+  return (
+    <Router>
+      <Routes>
+        <Route path='/' element={<LandingPageRedone />} />
+        <Route path='/homepage' element={<Homepage />} />
+        <Route path='/mapPage' element={<MapPage />} />
+        <Route path='/account' element={<Account />} />
+        <Route path='/create-post' element={<CreatePost />} />
+      </Routes>
+    </Router>
+  )
+}
 
 export default App

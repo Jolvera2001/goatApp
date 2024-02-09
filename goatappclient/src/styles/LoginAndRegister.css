@@ -1,0 +1,36 @@
+.auth-form-container, .login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+
+@media screen and (min-width: 700px) {
+    .auth-form-container {
+      padding: 3.5rem;
+      border: 1px solid rgb(109, 109, 146);
+      border-radius: 10px;
+      margin: 0.5rem;
+      background-color:#09509cec;
+    }
+}
+
+label {
+    text-align: left;
+    padding: 0.25rem 0;
+}
+
+input {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: white;
+    background-color: #020231e1;
+}
+
+
+.link-btn {
+    background: none;
+    color: rgb(216, 214, 87);
+    text-decoration: underline;
+}

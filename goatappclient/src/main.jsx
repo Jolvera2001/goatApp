@@ -1,22 +1,57 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import Home from './Home.jsx'
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom"
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { createBrowserRouter, RouterProvider, Route, Outlet } from 'react-router-dom';
+
+import App from './App.jsx';
+import Sidebar from './components/Sidebar.jsx';
+import Homepage from './pages/Homepage.jsx';
+import Account from './pages/Account.jsx';
+import MapPage from './pages/MapPage.jsx';
+import LandingPageRedone from './pages/LandingPageRedone';
+import CreatePost from './pages/CreatePost'
+
+
+
+const AppLayout = () => (
+  <>
+    {/* Conditionally render Sidebar based on route */}
+    {window.location.pathname !== '/' && <Sidebar />}
+    <Outlet />
+  </>
+);
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/',
+        element: <LandingPageRedone />,
+      },
+      {
+        path: 'homepage',
+        element: <Homepage />,
+      },
+      {
+        path: 'account',
+        element: <Account />,
+      },
+      {
+        path: 'map',
+        element: <MapPage />,
+      },
+      {
+        path: 'create-post',
+        element: <CreatePost />,
+      },
+    ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+createRoot(document.getElementById('root')).render(
+  <RouterProvider router={router} />
+);
