@@ -1,4 +1,5 @@
 import '../styles/redone.css';
+import bgImg from '../assets/HW-St.-Edwards-Baseball-20-1200x750.jpg'
 import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import RouteIcon from '@mui/icons-material/Route';
@@ -183,7 +184,7 @@ export default function ButtonUsage() {
                     </Box>
                     <img
                     className='landingImg'
-                    src='src/assets/HW-St.-Edwards-Baseball-20-1200x750.jpg'
+                    src={bgImg}
                     alt="Image"
                     style={{ width: '60%', borderRadius: '5px' }} // Adjust the width and margin
                         />
