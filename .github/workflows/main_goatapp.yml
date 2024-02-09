@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - GoatApp
+name: Build and deploy ASP.Net Core app to Azure Web App - GoatApp
 
 on:
   push:
@@ -16,28 +16,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Java version
-        uses: actions/setup-java@v1
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
         with:
-          java-version: '17'
+          dotnet-version: '8.x'
+          include-prerelease: true
 
-      - name: Make Gradle wrapper executable
-        run: chmod +x ./gradlew
-        working-directory: goatappserver
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
 
-      - name: Build with Gradle
-        run: ./gradlew build
-        working-directory: goatappserver
-
-      - name: Create Jar File
-        run: ./gradlew buildFatJar
-        working-directory: goatappserver
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: java-app
-          path: '${{ github.workspace }}/goatappserver/build/libs/com.example.goatappserver-all.jar'
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,12 +40,12 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-      
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: java-app
+          name: .net-app
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -58,5 +53,5 @@ jobs:
         with:
           app-name: 'GoatApp'
           slot-name: 'Production'
-          package: '*.jar'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_20C6D50CC9ED4A4EA683A5F7947BAE80 }}
+          package: .
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CF937CA57F5C4AEFACC91A76B3D03ADC }}
