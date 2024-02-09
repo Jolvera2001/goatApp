@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Identity;
 using goatAppASP.Services;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Authorization;
 
 namespace goatAppASP.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     [Route("[controller]/credentials")]
     public class UserController : ControllerBase
     {
@@ -29,13 +31,17 @@ namespace goatAppASP.Controllers
             {
                 // check if the username exists
                 var userLoggingIn = await _userService.GetAsyncName(login.Username);
+                Console.WriteLine("Got user logging in");
 
                 if (userLoggingIn == null) return Unauthorized("Invalid Credentials");
-                
+                Console.WriteLine("User Exists");
+
                 // then we check the password
-                if (login.Password != userLoggingIn.Password) return Unauthorized("Invalid Credentials");
-                
+                if (login.Password != userLoggingIn.Password) return BadRequest("Invalid Credentials");
+                Console.WriteLine("valid password");
+
                 // once this is good, then we return the Jwt
+                Console.WriteLine("Successful login!");
                 var token = _tokenService.GenerateJwtToken(userLoggingIn);
                 return Ok(new { token });
             }

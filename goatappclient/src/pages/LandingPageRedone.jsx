@@ -45,8 +45,8 @@ export default function ButtonUsage() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    Username: loginData.usernameRegister,
-                    Password: loginData.passwordRegister,
+                    Username: loginData.usernameLogin,
+                    Password: loginData.passwordLogin,
                 }),
             });
 

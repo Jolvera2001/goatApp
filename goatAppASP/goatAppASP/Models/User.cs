@@ -33,11 +33,3 @@ public class User
     public string? LastName { get; set; }
 }
 
-public class UserDatabaseSettings
-{
-    public string ConnectionString { get; set; } = null!;
-
-    public string Databasename { get; set; } = null!;
-
-    public string UserCollectionName { get; set; } = null!;
-}

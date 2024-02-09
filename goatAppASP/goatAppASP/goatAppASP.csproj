@@ -20,4 +20,8 @@
     <Compile Remove="Models\UserIdentityTest.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
