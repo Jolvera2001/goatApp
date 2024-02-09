@@ -43,8 +43,8 @@ export default function ButtonUsage() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    username: loginData.usernameRegister,
-                    password: loginData.passwordRegister,
+                    Username: loginData.usernameRegister,
+                    Password: loginData.passwordRegister,
                 }),
             });
 
@@ -67,6 +67,8 @@ export default function ButtonUsage() {
         usernameRegister: '',
         emailRegister: '',
         passwordRegister: '',
+        firstnameRegister: '',
+        lastnameRegister: '',
     });
 
     const handleRegisterChange = (event) => {
@@ -80,15 +82,18 @@ export default function ButtonUsage() {
 
         try {
             // sending a POST request to API
-            const response = await fetch('/api/auth/register', {
+            const response = await fetch('/User/credentials/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    username: registerData.usernameRegister,
-                    password: registerData.passwordRegister,
-                    email: registerData.emailRegister,
+                    Id: "",
+                    Username: registerData.usernameRegister,
+                    Password: registerData.passwordRegister,
+                    Email: registerData.emailRegister,
+                    FirstName: registerData.firstnameRegister,
+                    LastName: registerData.lastnameRegister
                 }),
             });
 
