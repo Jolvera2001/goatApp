@@ -9,8 +9,8 @@ namespace goatAppASP.Services
 
         public PostServices(IMongoClient mongoClient)
         {
-            var mongoDatabase = mongoClient.GetDatabase("");
-            _postCollection = mongoDatabase.GetCollection<Post>("");
+            var mongoDatabase = mongoClient.GetDatabase("goat-places");
+            _postCollection = mongoDatabase.GetCollection<Posts>("Posts");
         }
     }
 }
