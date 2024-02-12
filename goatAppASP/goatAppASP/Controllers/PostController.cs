@@ -1,4 +1,5 @@
 ﻿using goatAppASP.Models;
+using goatAppASP.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace goatAppASP.Controllers;
@@ -11,15 +12,15 @@ public class PostController : ControllerBase
     private readonly PostServices _postService;
     private readonly IConfiguration _configuration;
 
-    public PostController(PostServices _postService, IConfiguration configuration)
+    public PostController(PostServices postService, IConfiguration configuration)
     {
-        _postService = PostService;
+        _postService = postService;
         _configuration = configuration;
     }
 
     [Route("upload")]
     [HttpPost]
-    public async Task<IActionResult> Upload(PostModel post)
+    public async Task<IActionResult> Upload(Posts post)
     {
 
     }

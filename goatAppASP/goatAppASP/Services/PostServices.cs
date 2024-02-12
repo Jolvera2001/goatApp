@@ -1,10 +1,11 @@
 ﻿using MongoDB.Driver;
+using goatAppASP.Models;
 
 namespace goatAppASP.Services
 {
     public class PostServices
     {
-        private readonly IMongoCollection<Post> _postCollection;
+        private readonly IMongoCollection<Posts> _postCollection;
 
         public PostServices(IMongoClient mongoClient)
         {
