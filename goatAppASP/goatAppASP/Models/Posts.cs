@@ -25,12 +25,3 @@ public class Posts
     public string Description { get; set; }
 
 }
-
-public class UserDatabaseSettings
-{
-    public string ConnectionString { get; set; } = null!;
-
-    public string Databasename { get; set; } = null!;
-
-    public string UserCollectionName { get; set; } = null!;
-}

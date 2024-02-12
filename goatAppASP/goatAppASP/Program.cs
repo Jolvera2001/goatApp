@@ -30,10 +30,6 @@ builder.Services.AddSingleton<UserServices>();
 // Add Jwt Service
 builder.Services.AddScoped<TokenService>();
 
-// Add configuration settings for services
-builder.Services.Configure<UserDatabaseSettings>(
-    builder.Configuration.GetSection("UserDatabase"));
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 // builder.Services.AddEndpointsApiExplorer();
 // builder.Services.AddSwaggerGen();
