@@ -1,8 +1,5 @@
-﻿using Microsoft.Extensions.Options;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using goatAppASP.Models;
-using System.Reflection.Metadata;
-using MongoDB.Bson;
 
 namespace goatAppASP.Services;
 
