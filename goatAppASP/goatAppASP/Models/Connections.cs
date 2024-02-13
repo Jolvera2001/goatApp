@@ -13,6 +13,10 @@ namespace goatAppASP.Models
         public string Id { get; set; }
 
         [Required]
+        [BsonElement("Username")]
+        public string UserName { get; set; }
+
+        [Required]
         [BsonElement("Following")]
         public List<string> Following { get; set; }
 
