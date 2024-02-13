@@ -1,4 +1,5 @@
-﻿using goatAppASP.Models;
+﻿using System.Security.Claims;
+using goatAppASP.Models;
 using Microsoft.AspNetCore.Identity;
 using goatAppASP.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,6 @@ using Microsoft.AspNetCore.Authorization;
 namespace goatAppASP.Controllers
 {
     [ApiController]
-    [AllowAnonymous]
     [Route("[controller]/credentials")]
     public class UserController : ControllerBase
     {
@@ -24,6 +24,7 @@ namespace goatAppASP.Controllers
         }
 
         [Route("login")]
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel login)
         {
@@ -50,6 +51,7 @@ namespace goatAppASP.Controllers
         }
 
         [Route("register")]
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Register(User user)
         {
@@ -67,6 +69,20 @@ namespace goatAppASP.Controllers
             // returning status code
             var token = _tokenService.GenerateJwtToken(newUser);
             return Ok(new { token });
+        }
+
+        [Route("userProfile")]
+        [HttpGet]
+        public IActionResult FetchProfile()
+        {
+            // Getting claims
+            var nameClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
+
+            if (nameClaim != null) return Conflict(nameClaim.Value);
+
+            var username = nameClaim.Value;
+
+            return Ok(username);
         }
     }
 }
