@@ -9,10 +9,10 @@ namespace goatAppASP.Controllers;
 [Route("[controller]/post")]
 public class PostController : ControllerBase
 {
-    private readonly PostServices _postService;
+    private readonly PostService _postService;
     private readonly IConfiguration _configuration;
 
-    public PostController(PostServices postService, IConfiguration configuration)
+    public PostController(PostService postService, IConfiguration configuration)
     {
         _postService = postService;
         _configuration = configuration;

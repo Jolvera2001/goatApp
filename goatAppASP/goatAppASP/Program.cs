@@ -26,6 +26,8 @@ builder.Services.AddSingleton<IMongoClient>(client);
 
 // Add CRUD Services for APIs
 builder.Services.AddSingleton<UserServices>();
+builder.Services.AddSingleton<ConnectionsService>();
+builder.Services.AddSingleton<PostService>();
 
 // Add Jwt Service
 builder.Services.AddScoped<TokenService>();
