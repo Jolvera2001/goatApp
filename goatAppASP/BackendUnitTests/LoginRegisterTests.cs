@@ -68,7 +68,7 @@ namespace BackendUnitTests
 
             // Setting up http client and Jsons
             var client = new HttpClient();
-            var url = "https://localhost:7023/user/credentials/login";
+            var url = "http://localhost:5208/user/credentials/register";
 
             var json1 = JsonConvert.SerializeObject(user1);
             var content1 = new StringContent(json1, Encoding.UTF8, "application/json");
