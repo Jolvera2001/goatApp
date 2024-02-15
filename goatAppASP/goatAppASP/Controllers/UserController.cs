@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Amazon.Runtime.Internal;
 using goatAppASP.Models;
 using Microsoft.AspNetCore.Identity;
 using goatAppASP.Services;
@@ -14,11 +15,13 @@ namespace goatAppASP.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserServices _userService;
+        private readonly ConnectionsService _connectionsService;
         private readonly IConfiguration _configuration;
         private readonly TokenService _tokenService;
 
-        public UserController(UserServices userService, IConfiguration configuration, TokenService tokenService)
+        public UserController(UserServices userService, ConnectionsService connectionsService, IConfiguration configuration, TokenService tokenService)
         {
+            _connectionsService = connectionsService;
             _userService = userService;
             _configuration = configuration;
             _tokenService = tokenService;
@@ -66,6 +69,17 @@ namespace goatAppASP.Controllers
 
             // uploading to atlas db
             await _userService.CreateAsync(newUser);
+            
+            // creating new connections model
+            Connections newConnections = new Connections()
+            {
+                UserName = user.UserName,
+                Followers = new List<string>(),
+                Following = new List<string>()
+            };
+            
+            // adding new connections to DB
+            await _connectionsService.CreateAsync(newConnections);
 
             // returning status code
             var token = _tokenService.GenerateJwtToken(newUser);
