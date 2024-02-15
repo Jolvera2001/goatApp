@@ -5,6 +5,7 @@ using goatAppASP.Services;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
 
 namespace goatAppASP.Controllers
 {
@@ -69,6 +70,16 @@ namespace goatAppASP.Controllers
             // returning status code
             var token = _tokenService.GenerateJwtToken(newUser);
             return Ok(new { token });
+        }
+
+        [Route("deleteUser")]
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            if (id.IsNullOrEmpty()) return BadRequest("Invalid request");
+            // deleting user
+            await _userService.RemoveAsync(id);
+            return Ok("Successfully removed");
         }
 
         [Route("userProfile")]
