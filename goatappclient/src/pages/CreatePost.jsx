@@ -22,31 +22,31 @@ function CreatePost() {
   };
 
   const handleTitleChange = (event) => {
-    if (event.target.value.length <= 100) {
+    if (event.target.value.length <= 50) {
       setTitle(event.target.value);
     }
   };
   const handleDescriptionChange = (event) => {
-    if (event.target.value.length <= 300) {
+    if (event.target.value.length <= 100) {
       setDescription(event.target.value);
     }
   };
 
 
   const handleWhenChange = (event) => {
-    if (event.target.value.length <= 100) {
+    if (event.target.value.length <= 50) {
       setWhen(event.target.value);
     }
   };
 
   const handleWhereChange = (event) => {
-    if (event.target.value.length <= 100) {
+    if (event.target.value.length <= 50) {
       setWhere(event.target.value);
     }
   };
 
   const handleWhatChange = (event) => {
-    if (event.target.value.length <= 100) {
+    if (event.target.value.length <= 50) {
       setWhat(event.target.value);
     }
   };
@@ -74,7 +74,7 @@ function CreatePost() {
       case 1:
         return (
           <div className="createPost">
-          <div className="form-container">
+          <div className="form-containerPost">
             <form>
               <div className="addnewpost">
                 <h2>Create a Post!</h2>
@@ -85,11 +85,11 @@ function CreatePost() {
                 <input
                     type="text"
                     name="title"
-                    placeholder="Write Title"
+                    placeholder="Write Title Here."
                     value={title}
                     onChange={handleTitleChange}
                   ></input>
-                  <p className="title-char">{`${title.length}/100`}</p>
+                  <p className="title-char">{`${title.length}/50`}</p>
 
               </div>
               <div>
@@ -98,11 +98,11 @@ function CreatePost() {
                 <input
                     type="text"
                     name="desc"
-                    placeholder="Write Description"
+                    placeholder="Write Description Here."
                     value={description}
                     onChange={handleDescriptionChange}
                   ></input>
-                  <p className="desc-char">{`${description.length}/300`}</p>
+                  <p className="desc-char">{`${description.length}/100`}</p>
 
               </div>
               <div className="file">
@@ -112,6 +112,8 @@ function CreatePost() {
                   <input type="file" name="file" placeholder="File"></input>
                 </label>
               </div>
+
+              
               <button className="newpost-btn">Post</button>
             </form>
           </div>
@@ -132,11 +134,11 @@ function CreatePost() {
                   <input
                     type="text"
                     name="title"
-                    placeholder="Write Title"
+                    placeholder="Write Title Here."
                     value={title}
                     onChange={handleTitleChange}
                   ></input>
-                  <p className="title-char" >{`${title.length}/100`}</p>
+                  <p className="title-char" >{`${title.length}/50`}</p>
 
               </div>
           
@@ -149,7 +151,7 @@ function CreatePost() {
                     value={when}
                     onChange={handleWhenChange}
                   />
-                  <p className="when-char" >{`${when.length}/100`}</p>
+                  <p className="when-char" >{`${when.length}/50`}</p>
               </div>
 
               <div>
@@ -157,11 +159,11 @@ function CreatePost() {
                 <input
                     type="text"
                     name="where"
-                    placeholder="Where is the event"
+                    placeholder="Where is the event?"
                     value={where}
                     onChange={handleWhereChange}
                   />
-                  <p className="where-char" >{`${where.length}/100`}</p>
+                  <p className="where-char" >{`${where.length}/50`}</p>
               </div>
 
               <div>
@@ -169,11 +171,11 @@ function CreatePost() {
                 <input
                     type="text"
                     name="what"
-                    placeholder="Write a description about the event"
+                    placeholder="What is this event?"
                     value={what}
                     onChange={handleWhatChange}
                   />
-                  <p className="what-char">{`${what.length}/100`}</p>
+                  <p className="what-char">{`${what.length}/50`}</p>
               </div>
 
               <button className="newpost-btn">Post</button>
