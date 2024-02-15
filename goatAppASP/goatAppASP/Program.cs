@@ -26,13 +26,11 @@ builder.Services.AddSingleton<IMongoClient>(client);
 
 // Add CRUD Services for APIs
 builder.Services.AddSingleton<UserServices>();
+builder.Services.AddSingleton<ConnectionsService>();
+builder.Services.AddSingleton<PostService>();
 
 // Add Jwt Service
 builder.Services.AddScoped<TokenService>();
-
-// Add configuration settings for services
-builder.Services.Configure<UserDatabaseSettings>(
-    builder.Configuration.GetSection("UserDatabase"));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 // builder.Services.AddEndpointsApiExplorer();

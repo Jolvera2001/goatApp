@@ -255,6 +255,26 @@ export default function ButtonUsage() {
                                     variant="outlined">
 
                                 </TextField>
+                                <TextField
+                                    required
+                                    label="FirstName"
+                                    name='firstnameRegister'
+                                    size='small'
+                                    value={registerData.firstnameRegister}
+                                    onChange={handleRegisterChange}
+                                    variant="outlined">
+
+                                </TextField>
+                                <TextField
+                                    required
+                                    label="LastName"
+                                    name='lastnameRegister'
+                                    size='small'
+                                    value={registerData.lastnameRegister}
+                                    onChange={handleRegisterChange}
+                                    variant="outlined">
+
+                                </TextField>
                                 <Button onClick={handleRegisterSubmit}>Register</Button>
                             </Stack>
                         </form>

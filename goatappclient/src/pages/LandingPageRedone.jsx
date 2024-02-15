@@ -1,4 +1,5 @@
 import '../styles/redone.css';
+import bgImg from '../assets/HW-St.-Edwards-Baseball-20-1200x750.jpg'
 import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import RouteIcon from '@mui/icons-material/Route';
@@ -39,14 +40,14 @@ export default function ButtonUsage() {
 
         try {
             // sending a POST request to API
-            const response = await fetch('/api/auth/login', {
+            const response = await fetch('/User/credentials/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    username: loginData.usernameRegister,
-                    password: loginData.passwordRegister,
+                    Username: loginData.usernameLogin,
+                    Password: loginData.passwordLogin,
                 }),
             });
 
@@ -64,11 +65,13 @@ export default function ButtonUsage() {
         console.log(loginData);
     };
     
-    {/*   Registration Stuff   */}
+    {/*   Registration Stuff   */ }
     const [registerData, setRegisterData] = useState({
-          usernameRegister: '',
-          emailRegister: '',
-          passwordRegister: '',
+        usernameRegister: '',
+        emailRegister: '',
+        passwordRegister: '',
+        firstnameRegister: '',
+        lastnameRegister: '',
     });
 
     const handleRegisterChange = (event) => {
@@ -79,18 +82,21 @@ export default function ButtonUsage() {
     // This is to submit to the register API
     const handleRegisterSubmit = async (event) => {
         event.preventDefault();
-        
+
         try {
             // sending a POST request to API
-            const response = await fetch('/api/auth/register', {
+            const response = await fetch('/User/credentials/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    username: registerData.usernameRegister,
-                    password: registerData.passwordRegister,
-                    email: registerData.emailRegister,
+                    Id: "",
+                    Username: registerData.usernameRegister,
+                    Password: registerData.passwordRegister,
+                    Email: registerData.emailRegister,
+                    FirstName: registerData.firstnameRegister,
+                    LastName: registerData.lastnameRegister
                 }),
             });
 
@@ -178,7 +184,7 @@ export default function ButtonUsage() {
                     </Box>
                     <img
                     className='landingImg'
-                    src='src/assets/HW-St.-Edwards-Baseball-20-1200x750.jpg'
+                    src={bgImg}
                     alt="Image"
                     style={{ width: '60%', borderRadius: '5px' }} // Adjust the width and margin
                         />
@@ -304,6 +310,26 @@ export default function ButtonUsage() {
                                 value={registerData.emailRegister}
                                 onChange={handleRegisterChange}
                                 variant="filled">
+
+                            </TextField>
+                            <TextField
+                                required
+                                label="FirstName"
+                                name='firstnameRegister'
+                                size='small'
+                                value={registerData.firstnameRegister}
+                                onChange={handleRegisterChange}
+                                variant="outlined">
+
+                            </TextField>
+                            <TextField
+                                required
+                                label="LastName"
+                                name='lastnameRegister'
+                                size='small'
+                                value={registerData.lastnameRegister}
+                                onChange={handleRegisterChange}
+                                variant="outlined">
 
                             </TextField>
                             <Button onClick={handleRegisterSubmit}>Register</Button>
