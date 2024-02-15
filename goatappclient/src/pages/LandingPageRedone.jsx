@@ -257,13 +257,13 @@ export default function ButtonUsage() {
                         <Stack spacing={2}>
                             <Typography variant='h6'>Login</Typography>
                             <TextField
-                                required
+                                requied
                                 label="Username"
                                 name="usernameLogin"
                                 size='small'
                                 value={loginData.usernameLogin}
                                 onChange={handleLoginChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -273,7 +273,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={loginData.passwordLogin}
                                 onChange={handleLoginChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <Button onClick={handleLoginSubmit}>Login</Button>
@@ -289,7 +289,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.usernameRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -299,7 +299,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.passwordRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -309,7 +309,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.emailRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
