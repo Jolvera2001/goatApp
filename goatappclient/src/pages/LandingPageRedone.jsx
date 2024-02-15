@@ -319,7 +319,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.firstnameRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -329,7 +329,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.lastnameRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <Button onClick={handleRegisterSubmit}>Register</Button>
