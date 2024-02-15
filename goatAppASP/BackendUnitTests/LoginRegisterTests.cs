@@ -1,7 +1,5 @@
 using System.Net;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Text;
-using JsonConvert = Newtonsoft.Json.JsonConvert;
 
 namespace BackendUnitTests
 {
