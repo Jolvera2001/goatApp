@@ -73,7 +73,7 @@ namespace goatAppASP.Controllers
 
         [Route("userProfile")]
         [HttpGet]
-        public IActionResult FetchProfile()
+        public async Task<IActionResult> FetchProfile()
         {
             // Getting claims
             var nameClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
@@ -82,7 +82,10 @@ namespace goatAppASP.Controllers
 
             var username = nameClaim.Value;
 
-            return Ok(username);
+            // now we fetch the user info
+            var profile = await _userService.GetAsyncName(username);
+
+            return Ok(new {profile});
         }
     }
 }

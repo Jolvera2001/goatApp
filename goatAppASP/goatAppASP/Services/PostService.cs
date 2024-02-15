@@ -13,11 +13,11 @@ namespace goatAppASP.Services
             _postCollection = mongoDatabase.GetCollection<Posts>("Posts");
         }
 
-        public async Task<List<Posts>> GetAsync() =>
-            await _postCollection.Find(_ => true).ToListAsync();
+        public async Task<List<Posts>> GetFeedAsync(string username) =>
+            await _postCollection.Find(x => x.UserName == username).ToListAsync();
 
-        public async Task<Posts?> GetAsync(string username) =>
-            await _postCollection.Find(x => x.UserName == username).FirstOrDefaultAsync();
+        public async Task<Posts?> GetAsync(string id) =>
+            await _postCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
         public async Task<List<Posts>> GetAsyncList(string username) =>
             await _postCollection.Find(x => x.UserName == username).ToListAsync();
