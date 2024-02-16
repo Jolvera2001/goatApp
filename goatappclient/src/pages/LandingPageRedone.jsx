@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import RouteIcon from '@mui/icons-material/Route';
 import ForumIcon from '@mui/icons-material/Forum';
 import EventIcon from '@mui/icons-material/Event';
+import { useNavigate } from 'react-router-dom'; 
 import { Grid,
         Container, 
         Card,
@@ -18,7 +19,13 @@ import { Grid,
         Drawer,
         TextField } from '@mui/material';
 
+        // Import useHistory hook
+
+
 export default function ButtonUsage() {
+
+
+    const navigate = useNavigate();
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -54,6 +61,8 @@ export default function ButtonUsage() {
             if (response.ok) {
                 console.log("Logged IN!");
                 console.log(response);
+
+                navigate('/homepage'); 
             } else {
                 console.log('something bad happened?');
                 console.log(response);
