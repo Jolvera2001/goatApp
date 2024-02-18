@@ -1,6 +1,6 @@
 import '../styles/redone.css';
 import bgImg from '../assets/HW-St.-Edwards-Baseball-20-1200x750.jpg'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import RouteIcon from '@mui/icons-material/Route';
 import ForumIcon from '@mui/icons-material/Forum';
@@ -29,6 +29,14 @@ export default function ButtonUsage() {
     const navigate = useNavigate();
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    // checking for jwt
+    useEffect(() => {
+        const jwtToken = sessionStorage.getItem("jwt");
+        if (jwtToken) {
+            navigate('/homepage');
+        }
+    })
 
     {/*   Login Stuff   */}
     const [loginData, setLoginData] = useState({
@@ -60,12 +68,13 @@ export default function ButtonUsage() {
             });
 
             if (response.ok) {
-                console.log("Logged IN!");
-                console.log(response);
-                navigate('/homepage');
+                response.json().then(data => {
+                    const jwtToken = data.token;
+                    sessionStorage.setItem("jwt", jwtToken);
+                    navigate('/homepage');
+                });
             } else {
-                console.log('something bad happened?');
-                console.log(response);
+                console.log('Error');
             }
         }
         catch (error) {
@@ -110,12 +119,13 @@ export default function ButtonUsage() {
             });
 
             if (response.ok) {
-                console.log("REGISTERED!");
-                console.log(response);
-                navigate('/homepage');
+                response.json().then(data => {
+                    const jwtToken = data.token;
+                    sessionStorage.setItem("jwt", jwtToken);
+                    navigate('/homepage');
+                });
             } else {
-                console.log('something bad happened?');
-                console.log(response);
+                console.log('Error');
             }
         }
         catch (error) {
