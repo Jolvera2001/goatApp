@@ -62,8 +62,7 @@ export default function ButtonUsage() {
             if (response.ok) {
                 console.log("Logged IN!");
                 console.log(response);
-
-                return <Navigate to='/homepage'/>; 
+                navigate('/homepage');
             } else {
                 console.log('something bad happened?');
                 console.log(response);
@@ -113,6 +112,7 @@ export default function ButtonUsage() {
             if (response.ok) {
                 console.log("REGISTERED!");
                 console.log(response);
+                navigate('/homepage');
             } else {
                 console.log('something bad happened?');
                 console.log(response);
