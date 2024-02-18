@@ -6,6 +6,7 @@ import RouteIcon from '@mui/icons-material/Route';
 import ForumIcon from '@mui/icons-material/Forum';
 import EventIcon from '@mui/icons-material/Event';
 import { useNavigate } from 'react-router-dom'; 
+import Homepage from './Homepage';
 import { Grid,
         Container, 
         Card,
@@ -62,7 +63,7 @@ export default function ButtonUsage() {
                 console.log("Logged IN!");
                 console.log(response);
 
-                navigate('/homepage'); 
+                return <Navigate to='/homepage'/>; 
             } else {
                 console.log('something bad happened?');
                 console.log(response);
