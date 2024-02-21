@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/AccountStyle.css";
 import UserIcon from "../styles/UserIcon.png";
 
@@ -13,6 +13,33 @@ function Account() {
   const [nameCharCount, setNameCharCount] = useState(0);
   const [majorCharCount, setMajorCharCount] = useState(0);
   const [classCharCount, setClassCharCount] = useState(0);
+
+  useEffect(() => {
+    fetchProfile();
+  }
+
+  const fetchProfile = async () => {
+    const jwtToken = sessionStorage.getItem("jwt");
+    if (jwtToken) {
+      try {
+        const response = await fetch ('/User/credentials/userProfile', {
+          method: 'GET'
+        });
+
+        if (response.ok) {
+          response.json().then(data => {
+            console.log(data);
+          });
+        } else {
+          console.log('Error');
+        }
+      } catch(error) {
+        console.log('Error getting user profile');
+      }
+    } else {
+      console.log("User has no jwt, you're not supposed ot be here");
+    }
+  }
 
   const handleProfilePictureChange = (e) => {
     const file = e.target.files[0];
