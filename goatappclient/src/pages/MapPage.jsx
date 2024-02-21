@@ -94,4 +94,5 @@ export default function MapPage() {
             </div>
         </div>
     );
+    // Add the Sidebar component
 }
