@@ -179,7 +179,7 @@ export default function ButtonUsage() {
                     maxWidth="sm"
                 >
                     <Stack spacing={4}>
-                        <Typography variant='h2' sx={{ fontSize: '55.2px', padding: '10px'}}>Welcome To Goatplaces!</Typography>
+                        <Typography variant='h2' sx={{ fontSize: '55.2px', padding: '10px', color: 'white'}}>Welcome To Goatplaces!</Typography>
                         <Typography variant='h5' sx={{ padding: '10px', m: 5, }}>
                             GOat Places is a simple and fast way to share campus experiences with friends. 
                             Whether you want to create them or simply let others know, sign up today to start!
