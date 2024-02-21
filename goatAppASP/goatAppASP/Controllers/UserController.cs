@@ -100,6 +100,20 @@ namespace goatAppASP.Controllers
         [HttpGet]
         public async Task<IActionResult> FetchProfile()
         {
+            // checking authorization header
+            if (!Request.Headers.ContainsKey("Authorization"))
+            {
+                return BadRequest("Authorization Header Missing");
+            }
+
+            var authorizationHeader = Request.Headers["Authorization"].FirstOrDefault();
+            if (string.IsNullOrEmpty(authorizationHeader))
+            {
+                return BadRequest("Authorization header is empty");
+            }
+
+            var token = authorizationHeader.Replace("Bearer ", "");
+
             // Getting claims
             var nameClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
 

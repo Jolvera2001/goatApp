@@ -16,14 +16,17 @@ function Account() {
 
   useEffect(() => {
     fetchProfile();
-  }
+  }, []);
 
   const fetchProfile = async () => {
     const jwtToken = sessionStorage.getItem("jwt");
     if (jwtToken) {
       try {
         const response = await fetch ('/User/credentials/userProfile', {
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${jwtToken}`
+          }
         });
 
         if (response.ok) {
@@ -37,7 +40,7 @@ function Account() {
         console.log('Error getting user profile');
       }
     } else {
-      console.log("User has no jwt, you're not supposed ot be here");
+      console.log("User has no jwt, you're not supposed to be here");
     }
   }
 
