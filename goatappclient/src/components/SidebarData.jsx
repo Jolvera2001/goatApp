@@ -17,8 +17,8 @@ export const SidebarData = [
     cName: "side-text",
   },
   {
-    title: "Map",
-    path: "/map",
+    title: "MapPage",
+    path: "/mapPage",
     icon: <FaIcons.FaMapMarkedAlt />,
     cName: "side-text",
   },
