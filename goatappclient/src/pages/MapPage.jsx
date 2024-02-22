@@ -1,35 +1,48 @@
-import mapboxgl from 'mapbox-gl';
-import React, { useEffect } from 'react';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'; // Import Mapbox Geocoder
-import 'mapbox-gl/dist/mapbox-gl.css'; // Import Mapbox CSS
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'; // Import Mapbox Geocoder CSS
+//pk.eyJ1IjoibXJkZWVkcyIsImEiOiJjbHB0aTIxaHYwYmRyMmtyb3p5aWRzdDY1In0.iqVP1-QJmTJ6KER883blXA
 
-import Sidebar from '../components/Sidebar'; // Import the Sidebar component
+import React, { useEffect } from 'react';
+import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'; // Import Mapbox Directions CSS
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'; // Import Mapbox Directions
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 
 export default function MapPage() {
     const bounds = [
-        [-97.7686, 30.2231], // Top-left corner
-        [-97.7227, 30.2338]  // Bottom-right corner
+        [-97.7686, 30.2231],
+        [-97.7227, 30.2338]
     ];
 
     useEffect(() => {
-        mapboxgl.accessToken = 'pk.eyJ1IjoibXJkZWVkcyIsImEiOiJjbHB0aTIxaHYwYmRyMmtyb3p5aWRzdDY1In0.iqVP1-QJmTJ6KER883blXA'; 
+        mapboxgl.accessToken = 'pk.eyJ1IjoibXJkZWVkcyIsImEiOiJjbHB0aTIxaHYwYmRyMmtyb3p5aWRzdDY1In0.iqVP1-QJmTJ6KER883blXA';
+
         const map = new mapboxgl.Map({
             container: 'map-container',
-            style: 'mapbox://styles/mapbox/streets-v11', // Choose a map style
-            center: [-97.753537, 30.229543], // Set the center to the calculated center
-            zoom: 14, // Starting zoom level
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-97.753537, 30.229543],
+            zoom: 14,
             maxBounds: bounds,
             maxBoundsViscosity: 0.5,
-            bearing: 30 // Adjust the viscosity if needed
+            bearing: 30
         });
 
-        // Add the Mapbox Geocoder
         const geocoder = new MapboxGeocoder({
             accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl
         });
         document.getElementById('search-bar').appendChild(geocoder.onAdd(map));
+
+        // Initialize Mapbox Directions
+        const directions = new MapboxDirections({
+            accessToken: mapboxgl.accessToken,
+            unit: 'metric', // Use metric units
+            profile: 'mapbox.driving', // Use driving profile
+            controls: { instructions: true } // Show turn-by-turn instructions
+        });
+
+        map.addControl(directions, 'top-left');
 
         // Add default marker layer
         map.on('load', () => {
@@ -44,7 +57,7 @@ export default function MapPage() {
                     'icon-size': 1.5
                 },
                 paint: {
-                    'icon-color': '#FF6347' // Marker color
+                    'icon-color': '#FF6347'
                 }
             });
 
@@ -53,7 +66,6 @@ export default function MapPage() {
                 const coordinates = e.features[0].geometry.coordinates.slice();
                 const name = e.features[0].properties.name;
 
-                // Create popup
                 new mapboxgl.Popup()
                     .setLngLat(coordinates)
                     .setHTML(`<h3>${name}</h3>`)
@@ -82,17 +94,16 @@ export default function MapPage() {
         }
 
         return () => map.remove(); // Cleanup when component unmounts
-    }, []); 
+    }, []);
 
     return (
         <div className="map-wrapper">
             <div className="search-bar-wrapper">
-                <div id="search-bar"></div> {/* Container for the search bar */}
+                <div id="search-bar"></div>
             </div>
             <div className="map-container-wrapper">
                 <div id="map-container" style={{ width: '100%', height: '600px' }}></div>
             </div>
         </div>
     );
-    // Add the Sidebar component
 }
