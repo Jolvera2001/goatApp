@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import UserIcon from "../styles/UserIcon.png";
 
 // UserAccountInfo component for displaying user account information

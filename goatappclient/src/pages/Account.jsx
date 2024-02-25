@@ -25,7 +25,7 @@ function Account() {
         const response = await fetch ('/User/credentials/userProfile', {
           method: 'GET',
           headers: {
-            'Authorization': jwtToken
+            'Authorization': `${jwtToken}`
           }
         });
 

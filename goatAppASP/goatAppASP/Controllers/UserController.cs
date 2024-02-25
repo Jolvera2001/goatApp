@@ -112,17 +112,18 @@ namespace goatAppASP.Controllers
                 return BadRequest("Authorization header is empty");
             }
 
-            var token = authorizationHeader.Replace("Bearer ", "");
+            var token = authorizationHeader;
 
             // Getting claims
-            var nameClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
+            var nameClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name);
+            if (nameClaim == null) return BadRequest(nameClaim.Value);
 
-            if (nameClaim != null) return Conflict(nameClaim.Value);
-
-            var username = nameClaim.Value;
+            // getting value of claim
+            var userName = nameClaim.Value;
+            if (userName == null) return BadRequest("Invalid Token");
 
             // now we fetch the user info
-            var profile = await _userService.GetAsyncName(username);
+            var profile = await _userService.GetAsyncName(userName);
 
             return Ok(new {profile});
         }
