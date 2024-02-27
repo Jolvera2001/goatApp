@@ -27,6 +27,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 #map-container {
@@ -43,6 +44,7 @@
 }
 
 .search-bar-wrapper {
+  z-index: 1000;
   position: absolute;
   top: 0;
   left: 0;
@@ -105,6 +107,7 @@
 }
 
 .side-menu {
+  z-index: 1001;
   background-color: #ffffff;
   width: 250px;
   height: 100vh;
