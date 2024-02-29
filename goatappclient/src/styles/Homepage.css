@@ -76,12 +76,7 @@
 
 
 .mapboxgl-ctrl-geocoder--icon-search {
-  position: absolute;
-  top: 30%;
-  right: 10px;
-  transform: translateY(-50%);
-  padding-right: 10px ;
-  color: #333;
+  display: none; /* Hide the search icon */
 }
 
 .map-container-wrapper {
