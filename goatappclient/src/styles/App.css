@@ -1,0 +1,112 @@
+/* Pallete
+#001D3D - Oxford Blue
+#58A4B0 - MoonStone
+#DCF9F3 - Mint Green
+#FFD60A - gold
+#DD6031 - flame
+*/
+
+
+
+.container { 
+  height: auto;
+  width: 100%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+body {
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: rgb(255, 255, 255);
+}
+
+button {
+  width: 10rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  border-style: none;
+  background-color: #FFD60A;
+  border-radius: 4px;
+  color: #001D3D;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+}
+
+p {
+  color: white;
+}
+
+.imageContainerIntro {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.card {
+  position: absolute;
+  width: 22rem;
+  top: 10rem;
+  left: 10rem;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 10px;
+  background: #001d3de1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.backgroundImage {
+  background-image: url('/src/assets/HW-St.-Edwards-Baseball-20-1200x750.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.headerLogo {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  height: 25%;
+  left: 3rem;
+  top: -1.5rem;
+  z-index: 3;
+}
+
+.gradientLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #000000, #00000036);
+  z-index: 1; /* Place the gradient overlay above the image */
+}
+
+.introHeader {
+  right: 3rem;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  padding: 5px;
+  margin-top: 1rem;
+}
+
+.introHeader li {
+  display: inline-block;
+  margin-right: 2rem;
+
+}
+
+.introHeaderLinks {
+  text-align: right;
+}
+
+
+

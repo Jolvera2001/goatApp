@@ -1,0 +1,107 @@
+.account {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  font-size: 2rem;
+  background-color: #001d3d;
+  overflow-y: scroll;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(237, 236, 236);
+  color: #000;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-right: 80px;
+}
+
+ .profile-picture {
+    margin-top: 10px;
+    flex-direction: row;
+  }
+
+.profile-picture img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.account-details {
+  text-align: left;
+  margin-top: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.followerCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  margin-right: 30px;
+}
+
+.followerCount strong {
+  margin-left: 35px;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.button-container button {
+  background-color: #001d3d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.button-container button:hover {
+  background-color: #000000;
+}
+
+/* New styles for input fields */
+.account-details input[type="text"] {
+  width: 70%; /* Adjust the width as needed */
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* New styles for character count */
+.char-field {
+  font-size: 1rem;
+  color: #888; /* Adjust the color as needed */
+  margin-top: -10px; /* Adjust to align with input fields */
+  margin-left: 400px; /* Adjust to position it to the right of the input fields */
+  margin-right: 20px; 
+  margin-bottom: 10px;
+
+}
+
+/*
+.char-field {
+  font-size: 1rem;
+  color: #888;
+  margin-top: -30px; /* Adjust as needed */
+ /*margin-left: 10px; /* Adjust to align with input fields */
