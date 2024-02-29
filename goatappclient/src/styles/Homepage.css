@@ -32,9 +32,8 @@
 
 #map-container {
   position: relative; /* Maintain position in document flow */
-  width: calc(100% - 250px); /* Adjust width to accommodate sidebar */
+  width: 100%; /* Adjust width to accommodate sidebar */
   height: 100vh; /* Full height of the viewport */
-  margin-left: 250px; /* Ensure map is positioned to the right of the sidebar */
   z-index: 999; /* Ensure map appears beneath the sidebar */
 }
 .map-wrapper {
@@ -44,22 +43,38 @@
 }
 
 .search-bar-wrapper {
-  z-index: 1000;
+  z-index: 1500;
   position: absolute;
   top: 0;
-  left: 0;
+  left: auto;
+  right: 0;
   z-index: 1000;
+<<<<<<< Updated upstream
   background-color: #ccc; /* Grey background color */
   padding-top: 10px;
+=======
+  padding: 20px;
+  padding-bottom: 20px;
+  background-color: transparent;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+>>>>>>> Stashed changes
 }
 .mapboxgl-ctrl-geocoder {
   position: relative;
   display: flex;
   align-items: center;
+<<<<<<< Updated upstream
   padding: 5px 5px 5px 5px; /* Add padding for spacing */
+=======
+>>>>>>> Stashed changes
   border-radius: 5px; /* Add some border radius for a rounded look */
+  height: 40px; 
+  border: 1px solid #ccc; /* Add a border */
+  background-color: transparent; /* Add a background color */
+  
 }
 
+<<<<<<< Updated upstream
 
 .mapboxgl-ctrl-directions {
   position: absolute;
@@ -71,6 +86,13 @@
   border-radius: 5px; /* Add border radius for a rounded look */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
 
+=======
+.mapboxgl-ctrl-geocoder input[type="text"] {
+  border: none; /* Remove default input border */
+  background: none; /* Remove input background */
+  flex: 1; /* Let the input take up remaining space */
+  color: #333;
+>>>>>>> Stashed changes
 }
 
 
@@ -81,6 +103,7 @@
   right: 10px;
   transform: translateY(-50%);
   padding-right: 10px ;
+  color: #333;
 }
 
 .map-container-wrapper {
