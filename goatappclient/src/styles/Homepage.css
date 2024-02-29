@@ -59,11 +59,19 @@
 }
 
 
-.mapboxgl-ctrl-geocoder input[type="text"] {
-  border: none; /* Remove default input border */
-  background: none; /* Remove input background */
-  flex: 1; /* Let the input take up remaining space */
+.mapboxgl-ctrl-directions {
+  position: absolute;
+  top: 20px; /* Adjust the top positioning as needed */
+  left: 20px; /* Adjust the left positioning as needed */
+  z-index: 1000; /* Adjust the z-index as needed */
+  background-color: #fff; /* Set the background color */
+  padding: 10px; /* Add padding to provide spacing */
+  border-radius: 5px; /* Add border radius for a rounded look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+
 }
+
+
 
 .mapboxgl-ctrl-geocoder--icon-search {
   position: absolute;
