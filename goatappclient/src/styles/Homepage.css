@@ -49,50 +49,28 @@
   left: auto;
   right: 0;
   z-index: 1000;
-<<<<<<< Updated upstream
-  background-color: #ccc; /* Grey background color */
-  padding-top: 10px;
-=======
   padding: 20px;
   padding-bottom: 20px;
   background-color: transparent;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
->>>>>>> Stashed changes
 }
 .mapboxgl-ctrl-geocoder {
   position: relative;
   display: flex;
   align-items: center;
-<<<<<<< Updated upstream
-  padding: 5px 5px 5px 5px; /* Add padding for spacing */
-=======
->>>>>>> Stashed changes
   border-radius: 5px; /* Add some border radius for a rounded look */
   height: 40px; 
   border: 1px solid #ccc; /* Add a border */
-  background-color: transparent; /* Add a background color */
-  
+  background-color: #ffffff; /* Add a background color */
+  padding-bottom: 20px;
+  padding-top: 20px;
+
 }
 
-<<<<<<< Updated upstream
-
-.mapboxgl-ctrl-directions {
-  position: absolute;
-  top: 20px; /* Adjust the top positioning as needed */
-  left: 20px; /* Adjust the left positioning as needed */
-  z-index: 1000; /* Adjust the z-index as needed */
-  background-color: #fff; /* Set the background color */
-  padding: 10px; /* Add padding to provide spacing */
-  border-radius: 5px; /* Add border radius for a rounded look */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
-
-=======
 .mapboxgl-ctrl-geocoder input[type="text"] {
   border: none; /* Remove default input border */
   background: none; /* Remove input background */
   flex: 1; /* Let the input take up remaining space */
   color: #333;
->>>>>>> Stashed changes
 }
 
 
