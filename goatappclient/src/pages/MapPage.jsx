@@ -11,8 +11,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default function MapPage() {
     const bounds = [
-        [-97.7686, 30.2231],
-        [-97.7227, 30.2338]
+        [-97.762752, 30.225416],
+        [-97.745457, 30.235323]
     ];
 
     useEffect(() => {
@@ -22,9 +22,9 @@ export default function MapPage() {
             container: 'map-container',
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [-97.753537, 30.229543],
-            zoom: 14,
+            zoom: 17,
             maxBounds: bounds,
-            maxBoundsViscosity: 0.5,
+            maxBoundsViscosity: 0.8,
             bearing: 30
         });
 
