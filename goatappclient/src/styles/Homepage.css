@@ -51,8 +51,7 @@
   z-index: 1000;
   padding: 20px;
   padding-bottom: 20px;
-  background-color: white;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
 }
 .mapboxgl-ctrl-geocoder {
   position: relative;
@@ -61,8 +60,10 @@
   border-radius: 5px; /* Add some border radius for a rounded look */
   height: 40px; 
   border: 1px solid #ccc; /* Add a border */
-  background-color: transparent; /* Add a background color */
-  
+  background-color: #ffffff; /* Add a background color */
+  padding-bottom: 20px;
+  padding-top: 20px;
+
 }
 
 .mapboxgl-ctrl-geocoder input[type="text"] {
