@@ -50,22 +50,30 @@
   left: 0;
   z-index: 1000;
   background-color: #ccc; /* Grey background color */
-  padding: 5px;
-  padding-bottom: 20px;
+  padding-top: 10px;
 }
 .mapboxgl-ctrl-geocoder {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 5px 30px 5px 10px; /* Add padding for spacing */
+  padding: 5px 5px 5px 5px; /* Add padding for spacing */
   border-radius: 5px; /* Add some border radius for a rounded look */
 }
 
-.mapboxgl-ctrl-geocoder input[type="text"] {
-  border: none; /* Remove default input border */
-  background: none; /* Remove input background */
-  flex: 1; /* Let the input take up remaining space */
+
+.mapboxgl-ctrl-directions {
+  position: absolute;
+  top: 20px; /* Adjust the top positioning as needed */
+  left: 20px; /* Adjust the left positioning as needed */
+  z-index: 1000; /* Adjust the z-index as needed */
+  background-color: #fff; /* Set the background color */
+  padding: 10px; /* Add padding to provide spacing */
+  border-radius: 5px; /* Add border radius for a rounded look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+
 }
+
+
 
 .mapboxgl-ctrl-geocoder--icon-search {
   position: absolute;
@@ -74,13 +82,6 @@
   transform: translateY(-50%);
   padding-right: 10px ;
 }
-
-
-
-
-
-
-
 
 .map-container-wrapper {
   flex: 1;
@@ -97,7 +98,6 @@
   height: 80px; /* Adjust the height as needed */
   
 }
-
 
 .menu-bars {
   margin-left: 2rem;
