@@ -82,6 +82,15 @@ h2{
   height: 100%;
 }
 
+.form-containerPost{
+  background-color: #001D3D;
+  padding: 130px;
+  text-align: center; /* Center the content within the container */
+  margin: 0 auto; /* Center the container horizontally on the page */
+  width: 50%;
+  height: 150%;
+}
+
 
 /* Style for the form and its elements */
 form {
@@ -150,4 +159,6 @@ input[type="file"] {
   margin-bottom: 60px; 
   
 }
+
+
 

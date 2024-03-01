@@ -10,6 +10,9 @@ function Account() {
   const [friendCount, setFriendCount] = useState(0);
   const [profilePicture, setProfilePicture] = useState(UserIcon);
   const [isEditing, setIsEditing] = useState(false);
+  const [nameCharCount, setNameCharCount] = useState(0);
+  const [majorCharCount, setMajorCharCount] = useState(0);
+  const [classCharCount, setClassCharCount] = useState(0);
 
   const handleProfilePictureChange = (e) => {
     const file = e.target.files[0];
@@ -25,11 +28,42 @@ function Account() {
   };
 
   const handleEditClick = () => {
-    setIsEditing(true);
+    // Toggle isEditing state
+    setIsEditing(!isEditing);
   };
 
   const handleSaveClick = () => {
     setIsEditing(false);
+  };
+
+  const handleAccountNameChange = (e) => {
+    if (e.target.value.length <= 50) {
+      setAccountName(e.target.value);
+    }
+  };
+
+  const handleNameChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 50) {
+      setName(value);
+      setNameCharCount(value.length);
+    }
+  };
+
+  const handleMajorChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 50) {
+      setMajor(value);
+      setMajorCharCount(value.length);
+    }
+  };
+
+  const handleClassYearChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= 50) {
+      setClassYear(value);
+      setClassCharCount(value.length);
+    }
   };
 
   return (
@@ -67,8 +101,9 @@ function Account() {
                     type="text"
                     id="username"
                     value={accountName}
-                    onChange={(e) => setAccountName(e.target.value)}
+                    onChange={handleAccountNameChange}
                   />
+                  <p className="char-field">{`${accountName.length}/50`}</p>
                 </span>
               ) : (
                 `Username: ${accountName}`
@@ -84,11 +119,14 @@ function Account() {
             <p>
               <strong>Name:</strong>{" "}
               {isEditing ? (
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
+                <span>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={handleNameChange}
+                  />
+                  <p className="char-field">{`${nameCharCount}/50`}</p>
+                </span>
               ) : (
                 ` ${name}`
               )}
@@ -96,23 +134,29 @@ function Account() {
             <p>
               <strong>Major:</strong>{" "}
               {isEditing ? (
-                <input
-                  type="text"
-                  value={major}
-                  onChange={(e) => setMajor(e.target.value)}
-                />
+                <span>
+                  <input
+                    type="text"
+                    value={major}
+                    onChange={handleMajorChange}
+                  />
+                  <p className="char-field">{`${majorCharCount}/50`}</p>
+                </span>
               ) : (
                 `${major}`
               )}
             </p>
             <p>
-              <strong>Class:</strong>{" "}
+              <strong>Class :</strong>{" "}
               {isEditing ? (
-                <input
-                  type="text"
-                  value={classYear}
-                  onChange={(e) => setClassYear(e.target.value)}
-                />
+                <span>
+                  <input
+                    type="text"
+                    value={classYear}
+                    onChange={handleClassYearChange}
+                  />
+                  <p className="char-field">{`${classCharCount}/50`}</p>
+                </span>
               ) : (
                 ` ${classYear}`
               )}

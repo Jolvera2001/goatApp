@@ -34,7 +34,7 @@ function Sidebar() {
           </Link>
           <li className="side-text" onClick={handleLogout}>
               <Link to="#">
-                <span>Logout</span>
+                <span className="logout-btn">Logout</span>
               </Link>
 
             </li>

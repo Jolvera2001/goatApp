@@ -1,10 +1,12 @@
 import '../styles/redone.css';
 import bgImg from '../assets/HW-St.-Edwards-Baseball-20-1200x750.jpg'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import RouteIcon from '@mui/icons-material/Route';
 import ForumIcon from '@mui/icons-material/Forum';
 import EventIcon from '@mui/icons-material/Event';
+import { useNavigate } from 'react-router-dom'; 
+import Homepage from './Homepage';
 import { Grid,
         Container, 
         Card,
@@ -18,9 +20,23 @@ import { Grid,
         Drawer,
         TextField } from '@mui/material';
 
+        // Import useHistory hook
+
+
 export default function ButtonUsage() {
 
+
+    const navigate = useNavigate();
+
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    // checking for jwt
+    useEffect(() => {
+        const jwtToken = sessionStorage.getItem("jwt");
+        if (jwtToken) {
+            navigate('/homepage');
+        }
+    })
 
     {/*   Login Stuff   */}
     const [loginData, setLoginData] = useState({
@@ -52,11 +68,13 @@ export default function ButtonUsage() {
             });
 
             if (response.ok) {
-                console.log("Logged IN!");
-                console.log(response);
+                response.json().then(data => {
+                    const jwtToken = data.token;
+                    sessionStorage.setItem("jwt", jwtToken);
+                    navigate('/homepage');
+                });
             } else {
-                console.log('something bad happened?');
-                console.log(response);
+                console.log('Error');
             }
         }
         catch (error) {
@@ -101,11 +119,13 @@ export default function ButtonUsage() {
             });
 
             if (response.ok) {
-                console.log("REGISTERED!");
-                console.log(response);
+                response.json().then(data => {
+                    const jwtToken = data.token;
+                    sessionStorage.setItem("jwt", jwtToken);
+                    navigate('/homepage');
+                });
             } else {
-                console.log('something bad happened?');
-                console.log(response);
+                console.log('Error');
             }
         }
         catch (error) {
@@ -159,7 +179,7 @@ export default function ButtonUsage() {
                     maxWidth="sm"
                 >
                     <Stack spacing={4}>
-                        <Typography variant='h2' sx={{ fontSize: '55.2px', padding: '10px'}}>Welcome To Goatplaces!</Typography>
+                        <Typography variant='h2' sx={{ fontSize: '55.2px', padding: '10px', color: 'white'}}>Welcome To Goatplaces!</Typography>
                         <Typography variant='h5' sx={{ padding: '10px', m: 5, }}>
                             GOat Places is a simple and fast way to share campus experiences with friends. 
                             Whether you want to create them or simply let others know, sign up today to start!
@@ -257,13 +277,13 @@ export default function ButtonUsage() {
                         <Stack spacing={2}>
                             <Typography variant='h6'>Login</Typography>
                             <TextField
-                                required
+                                requied
                                 label="Username"
                                 name="usernameLogin"
                                 size='small'
                                 value={loginData.usernameLogin}
                                 onChange={handleLoginChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -273,7 +293,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={loginData.passwordLogin}
                                 onChange={handleLoginChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <Button onClick={handleLoginSubmit}>Login</Button>
@@ -289,7 +309,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.usernameRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -299,7 +319,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.passwordRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -309,7 +329,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.emailRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -319,7 +339,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.firstnameRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <TextField
@@ -329,7 +349,7 @@ export default function ButtonUsage() {
                                 size='small'
                                 value={registerData.lastnameRegister}
                                 onChange={handleRegisterChange}
-                                variant="outlined">
+                                variant="filled">
 
                             </TextField>
                             <Button onClick={handleRegisterSubmit}>Register</Button>
